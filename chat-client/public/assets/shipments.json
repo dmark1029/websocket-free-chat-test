@@ -1,0 +1,52 @@
+[
+    {
+        "shipmentId": "93038204-dacf-437d-bc28-790164c7071d",
+        "partnerCompanyId": "3ff9e3e3-4019-4e92-936f-0617e3dd7c30",
+        "referenceName": "shipment A",
+        "status": "DRAFT",
+        "destinationName": "Stil company",
+        "departureName": "Alpha warehouse",
+        "plannedDeparture": "2024-03-28T22:00:00.000Z",
+        "plannedDestination": "2024-04-04T21:00:00.000Z"
+    },
+    {
+        "shipmentId": "da7cefae-b0d5-4254-b812-67922b6824ad",
+        "partnerCompanyId": "3ff9e3e3-4019-4e92-936f-0617e3dd7c30",
+        "referenceName": "shipment B",
+        "status": "IN PROGRESS",
+        "destinationName": "AV Gmbh",
+        "departureName": "Alpha warehouse",
+        "plannedDeparture": "2024-03-26T22:00:00.000Z",
+        "plannedDestination": "2024-03-30T22:00:00.000Z"
+    },
+    {
+        "shipmentId": "4facb411-f473-4162-b612-ed94dc6b3672",
+        "partnerCompanyId": "e8100541-23a9-4d59-97f6-f2be8bc29314",
+        "referenceName": "ship_C",
+        "status": "DRAFT",
+        "destinationName": "Beta EV",
+        "departureName": "Gio Gmbh",
+        "plannedDeparture": "2024-03-27T22:00:00.000Z",
+        "plannedDestination": "2024-03-30T22:00:00.000Z"
+    },
+    {
+        "shipmentId": "6fd0d270-5ff7-48db-9ead-f9848425e5d8",
+        "partnerCompanyId": "e8100541-23a9-4d59-97f6-f2be8bc29314",
+        "referenceName": "B09_01",
+        "status": "DRAFT",
+        "destinationName": "Nav SA",
+        "departureName": "Beta EV",
+        "plannedDeparture": "2024-01-09T22:00:00.000Z",
+        "plannedDestination": "2024-01-10T22:00:00.000Z"
+    },
+    {
+        "shipmentId": "494dfca9-77fd-405c-b12e-6a3266e34a66",
+        "partnerCompanyId": "e8100541-23a9-4d59-97f6-f2be8bc29314",
+        "referenceName": "19_12_A_1",
+        "status": "IN PROGRESS",
+        "destinationName": "Beta EV",
+        "departureName": "Mor Gmpbh",
+        "plannedDeparture": "2023-12-19T22:00:00.000Z",
+        "plannedDestination": "2023-12-29T22:00:00.000Z"
+    }
+]
