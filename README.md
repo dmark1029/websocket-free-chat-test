@@ -101,3 +101,7 @@ This is a simple chat service built with TypeScript, `socket.io-client`, `ws` (f
 
 Let me attach the images of the running application below
 ![start](./chat-client/public/1.png)
+![participants](./chat-client/public/2.png)
+![Edit](./chat-client/public/3.png)
+![Emoji](./chat-client/public/4.png)
+![Tab Exchange](./chat-client/public/5.png)
