@@ -98,3 +98,6 @@ This is a simple chat service built with TypeScript, `socket.io-client`, `ws` (f
    ```bash
    cd chat-server
    npm run start
+
+Let me attach the images of the running application below
+![start](./chat-client/public/1.png)
