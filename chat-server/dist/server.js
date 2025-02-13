@@ -1,27 +1,27 @@
-import express from "express";
-import { WebSocketServer } from "ws";
-import http from "http";
-
-const app = express();
-const server = http.createServer(app);
-const wss = new WebSocketServer({ server });
-
-const participants: Set<string> = new Set();
-const messages: { id: string; user: string; text: string; timestamp: number; edited?: boolean; deleted?: boolean; system?: boolean }[] = [];
-
-function broadcast(data: any) {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+	return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const ws_1 = require("ws");
+const http_1 = __importDefault(require("http"));
+const app = (0, express_1.default)();
+const server = http_1.default.createServer(app);
+const wss = new ws_1.WebSocketServer({ server });
+const participants = new Set();
+const messages = [];
+function broadcast(data) {
 	wss.clients.forEach((client) => {
 		if (client.readyState === client.OPEN) {
 			client.send(JSON.stringify(data));
 		}
 	});
 }
-
 wss.on("connection", (ws) => {
 	let userName = "User" + Math.floor(Math.random() * 1000);
 	ws.send(JSON.stringify({ type: "history", messages }));
-
-	ws.on("message", (messageData: string) => {
+	ws.on("message", (messageData) => {
 		const message = JSON.parse(messageData);
 		switch (message.type) {
 			case "message":
@@ -59,7 +59,6 @@ wss.on("connection", (ws) => {
 						timestamp: Date.now(),
 						system: true,
 					};
-
 					messages.push(botMessage);
 					participants.add(message.name);
 					userName = message.name;
@@ -71,7 +70,7 @@ wss.on("connection", (ws) => {
 	});
 	ws.on("close", () => {
 		if (!participants.has(userName)) {
-			return
+			return;
 		}
 		participants.delete(userName);
 		broadcast({ type: "participant-update", participants: Array.from(participants) });
@@ -86,11 +85,9 @@ wss.on("connection", (ws) => {
 		broadcast({ type: "message", message: botLeaveMessage });
 	});
 });
-
-app.get("/", (req: any, res: { send: (arg0: string) => void; }) => {
+app.get("/", (req, res) => {
 	res.send("Chat server running...");
 });
-
 server.listen(5000, () => {
 	console.log("Server is running on ws://localhost:5000");
 });
