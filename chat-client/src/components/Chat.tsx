@@ -5,8 +5,6 @@ import { Socket } from "../utils/socket";
 import EmojiPicker from "emoji-picker-react";
 import { io } from "socket.io-client";
 
-const socket = io("http://172.16.19.37:5000");
-
 interface ChatMessage {
   id: string;
   user: string;
