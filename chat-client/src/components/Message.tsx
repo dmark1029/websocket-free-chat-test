@@ -7,6 +7,7 @@ interface MessageProps {
     text: string;
     timestamp: number;
     edited?: boolean;
+    deleted?: boolean;
   };
   system?: boolean;
   userName: string;
@@ -47,7 +48,6 @@ const Message: React.FC<MessageProps> = ({
     setPreviewData(null);
   };
 
-
   const formatMessageText = (text: string) => {
     return text.replace(urlRegex, (url) => {
       const fullUrl = url.startsWith("http") ? url : `http://${url}`;
@@ -87,12 +87,18 @@ const Message: React.FC<MessageProps> = ({
           </div>
         ) : (
           <div style={styles.messageText}>
-            <p
-              style={{ whiteSpace: "pre-wrap" }}
-              dangerouslySetInnerHTML={{
-                __html: formatMessageText(message.text),
-              }}
-            />
+            {message.deleted ? (
+              <p style={{ whiteSpace: "pre-wrap", color: "#888" }}>
+                This message has been deleted.
+              </p>
+            ) : (
+              <p
+                style={{ whiteSpace: "pre-wrap" }}
+                dangerouslySetInnerHTML={{
+                  __html: formatMessageText(message.text),
+                }}
+              />
+            )}
             {previewData && (
               <div className="preview">
                 <h3>{previewData.title}</h3>
@@ -103,7 +109,7 @@ const Message: React.FC<MessageProps> = ({
           </div>
         )}
       </div>
-      {userName === message.user && (
+      {userName === message.user && !message.deleted && (
         <div style={styles.actions}>
           {!editMode && (
             <button onClick={() => setEditMode(true)} style={styles.editButton}>

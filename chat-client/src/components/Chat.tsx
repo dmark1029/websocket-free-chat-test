@@ -66,9 +66,11 @@ const ChatApp: React.FC = () => {
                 : msg
             );
           case "delete":
-            return updatedMessages.filter((msg) => msg.id !== message.message.id);
-          default:
-            break;
+            return updatedMessages.map((msg) =>
+              msg.id === message.message.id
+                ? { ...msg, text: "", deleted: true }
+                : msg
+            );
         }
 
         messagesRef.current = updatedMessages;
