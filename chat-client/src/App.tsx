@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   return (
     <div style={styles.container}>
-      <h1>Real-Time Chat Application</h1>
+      <h1>Status Meeting Setup</h1>
 
       <div style={styles.tabsContainer}>
         <div
@@ -26,7 +26,7 @@ const App: React.FC = () => {
           onClick={() => setActiveTab("participants")}
           style={{ ...styles.tab, ...(activeTab === "participants" ? styles.activeTab : {}) }}
         >
-          Participants
+          Participants({participants.length})
         </div>
       </div>
 
