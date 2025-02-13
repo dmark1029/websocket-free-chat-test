@@ -58,7 +58,7 @@ This is a simple chat service built with TypeScript, `socket.io-client`, `ws` (f
    ```bash
    cd chat-server
    npm run build
-4. ### Modifying the Server IP Address
+4. Modifying the Server IP Address
 
   After building the project, you need to update the WebSocket server IP address in the frontend to match the actual server IP address where your backend is running.
 
@@ -89,7 +89,7 @@ This is a simple chat service built with TypeScript, `socket.io-client`, `ws` (f
 
   ```typescript
   this.socket = new WebSocket("ws://172.16.19.37:5000");
-
+  ```
 5. Running the Application
    ```bash
    cd chat-client
